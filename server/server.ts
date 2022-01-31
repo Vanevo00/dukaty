@@ -1,6 +1,7 @@
 import express from 'express'
 import { ApolloServer, gql } from 'apollo-server-express'
 import http from "http"
+import schema from './schema'
 
 const port = 4001
 
@@ -13,7 +14,7 @@ const typeDefs = gql`
   type Query {
     books: [Book]
   }
-`;
+`
 
 const books = [
     {
@@ -32,14 +33,14 @@ const resolvers = {
     },
 }
 
-const startApolloServer = async (typeDefs: any, resolvers: any) => {
+const startApolloServer = async (schema: any) => {
     const app = express()
     const httpServer = http.createServer(app)
-    const server = new ApolloServer({ typeDefs, resolvers })
+    const server = new ApolloServer({ schema })
     await server.start()
     server.applyMiddleware({ app })
     app.get('/', (req, res) => res.send('Welcome to dukaty api'))
     app.listen(port, () => console.log(`API listening on port ${port}`))
 }
 
-startApolloServer(typeDefs, resolvers)
+startApolloServer(schema)
