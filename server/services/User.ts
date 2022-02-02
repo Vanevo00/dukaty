@@ -15,8 +15,6 @@ export class UserService {
     
           const createdUser = await User.create(preparedUserData)
     
-        //   await userActivationService.create(createdUser)
-    
           return createdUser
         } catch (err: any) {
           throw new Error(err)
