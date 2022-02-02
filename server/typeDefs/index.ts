@@ -1,11 +1,11 @@
 import Date from './scalars/Date'
-import Mutation from "./Mutation"
-import Query from "./Query"
-import User from "./User"
+import Mutation from './Mutation'
+import Query from './Query'
+import User from './User'
 
 export default [
-    Date,
-    Query,
-    Mutation,
-    User
+  Date,
+  Query,
+  Mutation,
+  User
 ]
