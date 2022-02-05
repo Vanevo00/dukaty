@@ -45,7 +45,6 @@ export class UserService {
       if (!(await bcrypt.compare(password, user.password))) throw new Error('invalid password')
 
       const userToken = jwt.sign(user.toJSON(), config.get('jwt.secret'), { expiresIn: '7 days' })
-      console.log("sending cookie", userToken)
       res.cookie('userToken', userToken, {
         httpOnly: true,
         sameSite: 'none',
