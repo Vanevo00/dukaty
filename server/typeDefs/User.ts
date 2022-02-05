@@ -11,6 +11,10 @@ export default gql`
         created: Date!
     }
 
+    extend type Query {
+        checkUserToken: User
+    }
+
     extend type Mutation {
         registerUser(
             name: String!

@@ -57,6 +57,16 @@ export class UserService {
     }
   }
 
+  async checkUserToken (req: IContext['req'], res: IContext['res']): Promise<IUserDocument | boolean> {
+    try {
+      const user: any = jwt.verify(req.cookies.userToken, config.get('jwt.secret'))
+      return user
+    } catch (err) {
+      res.clearCookie('userToken')
+      return false
+    }
+  }
+
   async validateAndPrepareUserData (args: IRegisterUserArgs) {
     const {
       name,
