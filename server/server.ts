@@ -4,7 +4,6 @@ import http from 'http'
 import schema from './schema'
 import { connectDB } from './utils/connectDB'
 import cookieParser from 'cookie-parser'
-import cors from 'cors'
 
 const port = 4001
 
