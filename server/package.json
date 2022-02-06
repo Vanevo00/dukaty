@@ -1,12 +1,13 @@
 {
-  "name": "server",
+  "name": "dukaty-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon",
     "eslint": "eslint --ext '.js,.jsx,.ts,.tsx' .",
-    "eslint:fix": "eslint --fix . --ext '.js,.jsx,.ts,.tsx' ."
+    "eslint:fix": "eslint --fix . --ext '.js,.jsx,.ts,.tsx' .",
+    "build": "rm -rf ./build && tsc"
   },
   "author": "",
   "license": "ISC",

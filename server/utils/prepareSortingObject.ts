@@ -1,4 +1,4 @@
-import { ISorting } from '../../types/Sorting'
+import { ISorting } from '../types/Sorting'
 
 export default (sorting: ISorting) => {
   const {
