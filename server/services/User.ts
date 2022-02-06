@@ -57,6 +57,15 @@ export class UserService {
     }
   }
 
+  async logout (res: IContext['res']): Promise<boolean> {
+    res.clearCookie('userToken', {
+      httpOnly: true,
+      sameSite: 'none',
+      secure: true
+    })
+    return true
+  }
+
   async checkUserToken (req: IContext['req'], res: IContext['res']): Promise<IUserDocument | boolean> {
     try {
       const user: any = jwt.verify(req.cookies.userToken, config.get('jwt.secret'))
