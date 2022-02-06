@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
+    "start:watch": "nodemon",
     "eslint": "eslint --ext '.js,.jsx,.ts,.tsx' .",
     "eslint:fix": "eslint --fix . --ext '.js,.jsx,.ts,.tsx' .",
-    "build": "rm -rf ./build && tsc"
+    "build": "rm -rf ./build && tsc",
+    "start:builtserver": "node build/server.js"
   },
   "author": "",
   "license": "ISC",
