@@ -1,6 +1,10 @@
+import Layout from "../components/Layout"
+
 const Home = () => {
     return (
-        <button type="button" className="btn btn-primary">Primary</button>
+        <Layout>
+            pes
+        </Layout>
     )
 }
 
