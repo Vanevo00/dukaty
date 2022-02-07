@@ -1,6 +1,6 @@
 const Home = () => {
     return (
-        <button>pes</button>
+        <button type="button" className="btn btn-primary">Primary</button>
     )
 }
 
