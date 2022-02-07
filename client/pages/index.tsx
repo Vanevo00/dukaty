@@ -1,11 +1,11 @@
-import Layout from "../components/Layout"
+import Layout from '../components/Layout'
 
 const Home = () => {
-    return (
+  return (
         <Layout>
             pes
         </Layout>
-    )
+  )
 }
 
 export default Home
