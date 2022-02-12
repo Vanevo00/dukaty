@@ -3,10 +3,10 @@ import Navbar from './Navbar'
 
 const Layout: FunctionComponent = ({ children }) => {
   return (
-      <>
-      <Navbar/>
-        { children }
-      </>
+    <div className='container-fluid min-vh-100 secondary-background p-0'>
+      <Navbar />
+      {children}
+    </div>
   )
 }
 

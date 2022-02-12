@@ -3,7 +3,11 @@
     "es6": true
   },
   "parser": "@typescript-eslint/parser",
-  "extends": "standard",
+  "extends": [
+    "standard",
+    "standard-jsx",
+    "standard-react"
+  ],
   "plugins": [
     "standard",
     "promise",
@@ -19,17 +23,28 @@
     "react/jsx-uses-vars": "error",
     "no-unneeded-ternary": "off",
     "no-use-before-define": "off",
+    "react/react-in-jsx-scope": "off",
     "multiline-ternary": "off",
-    "import/no-useless-path-segments": [ "error", {
-      "noUselessIndex": true
-    }]
+    "import/no-useless-path-segments": [
+      "error",
+      {
+        "noUselessIndex": true
+      }
+    ]
   },
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
       "rules": {
-        "no-unused-vars": ["off"],
-        "no-undef": ["off"]
+        "no-unused-vars": [
+          "off"
+        ],
+        "no-undef": [
+          "off"
+        ]
       }
     }
   ],

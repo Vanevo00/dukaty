@@ -1,2 +1,18 @@
-$primary: rgb(224, 13, 13);
-$secondary: #000;
+$primary: rgb(12, 116, 185);
+$secondary: #fff;
+
+.primary-background {
+  background-color: $primary;
+}
+
+.secondary-background {
+  background-color: $secondary;
+}
+
+.primary-color {
+  color: $primary !important;
+}
+
+.secondary-color {
+  color: $secondary !important;
+}
