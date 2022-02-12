@@ -1,6 +1,14 @@
-import React, { FunctionComponent } from 'react'
+import styled from 'styled-components'
 import Logo from './Logo'
 import Menu from './Menu'
+
+const NavbarWrapper = styled.nav`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+`
 
 const menuItems = [
   {
@@ -14,12 +22,12 @@ const menuItems = [
   }
 ]
 
-const Navbar: FunctionComponent = ({ children }) => {
+const Navbar = () => {
   return (
-    <nav className='navbar navbar-expand-lg navbar-light'>
+    <NavbarWrapper>
       <Logo />
       <Menu menuItems={menuItems} />
-    </nav>
+    </NavbarWrapper>
   )
 }
 

@@ -1,0 +1,14 @@
+// this prevents styled components className mismatch error 
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "ssr": true
+      }
+    ]
+  ]
+}

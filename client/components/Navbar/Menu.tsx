@@ -1,5 +1,12 @@
+import styled from 'styled-components'
 import MenuItem from './MenuItem'
 import MobileNavbarToggler from './MobileNavbarToggler'
+
+const MenuWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`
 
 interface Props {
   menuItems: {
@@ -9,16 +16,10 @@ interface Props {
 
 const Menu = ({ menuItems }: Props) => {
   return (
-    <div>
-      <MobileNavbarToggler />
-      <div className='collapse navbar-collapse' id='navbarNav'>
-        <ul className='navbar-nav'>
-          {
-            menuItems.map((item) => <MenuItem key={item.name} item={item} />)
-          }
-        </ul>
-      </div>
-    </div>
+    <MenuWrapper>
+      {/* <MobileNavbarToggler /> */}
+      {menuItems.map((item) => <MenuItem key={item.name} item={item} />)}
+    </MenuWrapper>
   )
 }
 
