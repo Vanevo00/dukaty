@@ -1,12 +1,15 @@
 import React, { FunctionComponent } from 'react'
-import Navbar from './Navbar'
+import Navbar from './Navbar/Navbar'
 
 const Layout: FunctionComponent = ({ children }) => {
   return (
-    <div className='container-fluid min-vh-100 secondary-background p-0'>
-      <Navbar />
-      {children}
+    <div className='primary-background'>
+      <div className='container min-vh-100 primary-background p-0'>
+        <Navbar />
+        {children}
+      </div>
     </div>
+
   )
 }
 
