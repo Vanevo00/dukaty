@@ -1,7 +1,9 @@
+import Link from 'next/link'
 import styled from 'styled-components'
+import { useRouter } from 'next/router'
 
-const Item = styled.a`
-  color: ${props => props.theme.secondaryColor};
+const Item = styled.a<{ isActive: boolean }>`
+  color: ${props => props.isActive ? props.theme.tertiaryColor : props.theme.secondaryColor};
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   text-decoration: none;
@@ -9,6 +11,7 @@ const Item = styled.a`
   transition: .3s;
   position: relative;
   padding-bottom: 7px;
+  cursor: pointer;
 
   &:before {
     content: "";
@@ -18,8 +21,7 @@ const Item = styled.a`
     bottom: 0;
     left: 0;
     background-color: ${props => props.theme.tertiaryColor};
-    visibility: hidden;
-    transform: scaleX(0);
+    ${props => props.isActive ? '' : 'visibility: hidden; transform: scaleX(0);'}
     transition: all 0.3s ease-in-out; 
   }
 
@@ -35,13 +37,23 @@ const Item = styled.a`
 
 interface Props {
   item: {
-    name: string
+    name: string,
+    linksTo: string
   }
 }
 
 const MenuItem = ({ item }: Props) => {
+  const {
+    name,
+    linksTo
+  } = item
+  const router = useRouter()
+  const isActive = router.pathname === linksTo
+
   return (
-    <Item href='#'>{item.name}</Item>
+    <Link href={linksTo}>
+      <Item isActive={isActive}>{name}</Item>
+    </Link>
   )
 }
 

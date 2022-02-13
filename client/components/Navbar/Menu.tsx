@@ -10,7 +10,8 @@ const MenuWrapper = styled.div`
 
 interface Props {
   menuItems: {
-    name: string
+    name: string,
+    linksTo: string
   }[]
 }
 

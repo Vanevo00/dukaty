@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
 const LogoLink = styled.a`
@@ -6,6 +7,7 @@ const LogoLink = styled.a`
   font-family: 'Sriracha', cursive;
   letter-spacing: 2px;
   font-size: 30px;
+  cursor: pointer;
 
   &:hover {
     text-decoration: none;
@@ -15,7 +17,9 @@ const LogoLink = styled.a`
 
 const Logo = () => {
   return (
-    <LogoLink href='#'>DUKÁTY.CZ</LogoLink>
+    <Link href='/'>
+      <LogoLink>DUKÁTY.CZ</LogoLink>
+    </Link>
   )
 }
 

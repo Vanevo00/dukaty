@@ -17,13 +17,16 @@ const NavbarWrapper = styled.nav`
 
 const menuItems = [
   {
-    name: 'Domů'
+    name: 'Domů',
+    linksTo: '/'
   },
   {
-    name: 'Informace'
+    name: 'Informace',
+    linksTo: '/Informace'
   },
   {
-    name: 'Koupit'
+    name: 'Koupit',
+    linksTo: '/Koupit'
   }
 ]
 
