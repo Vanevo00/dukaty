@@ -2,23 +2,26 @@ import React, { FunctionComponent } from 'react'
 import styled from 'styled-components'
 import Navbar from './Navbar/Navbar'
 
-const LayoutWrapper = styled.div`
+const MainBackgroundWrapper = styled.div`
   background-color: ${props => props.theme.primaryColor};
-  min-height: 100vh;
-  padding: 0 300px;
+  display: flex;
+  justify-content: center;
+`
 
-  @media (max-width: ${props => props.theme.largeScreen}) {
-    padding: 0 100px;
-  }
+const LayoutWrapper = styled.div`
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1046px;
 `
 
 const Layout: FunctionComponent = ({ children }) => {
   return (
-    <LayoutWrapper>
-      <Navbar />
-      {children}
-    </LayoutWrapper>
-
+    <MainBackgroundWrapper>
+      <LayoutWrapper>
+        <Navbar />
+        {children}
+      </LayoutWrapper>
+    </MainBackgroundWrapper>
   )
 }
 
