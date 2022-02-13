@@ -1,8 +1,21 @@
+import styled from 'styled-components'
+
+const LogoLink = styled.a`
+  color: ${props => props.theme.secondaryColor};
+  text-decoration: none;
+  font-family: 'Sriracha', cursive;
+  letter-spacing: 2px;
+  font-size: 30px;
+
+  &:hover {
+    text-decoration: none;
+    color: ${props => props.theme.secondaryColor};
+  }
+`
+
 const Logo = () => {
   return (
-    <div className='container-fluid'>
-      <a className='navbar-brand secondary-color secondary-font font-weight-600 letter-spacing-2' href='#'>DUKÁTY.CZ</a>
-    </div>
+    <LogoLink href='#'>DUKÁTY.CZ</LogoLink>
   )
 }
 

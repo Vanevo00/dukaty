@@ -8,6 +8,11 @@ const NavbarWrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
+
+  @media (max-width: ${props => props.theme.largeScreen}) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 `
 
 const menuItems = [
@@ -15,10 +20,10 @@ const menuItems = [
     name: 'Domů'
   },
   {
-    name: 'Nákup'
+    name: 'Informace'
   },
   {
-    name: 'Prodej'
+    name: 'Koupit'
   }
 ]
 
