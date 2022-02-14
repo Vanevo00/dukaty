@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import MenuItem from './MenuItem'
-import MobileNavbarToggler from './MobileNavbarToggler'
+import MobileMenu from './MobileMenu'
 
 const MenuWrapper = styled.div`
   display: flex;
@@ -16,9 +17,26 @@ interface Props {
 }
 
 const Menu = ({ menuItems }: Props) => {
+  const [isMobile, setIsMobile] = useState(false)
+  const [isDeviceWidthDetermined, setIsDeviceWidthDetermined] = useState(false)
+
+  useEffect(() => {
+    if (window.innerWidth <= 800) {
+      setIsMobile(true)
+    }
+    setIsDeviceWidthDetermined(true)
+  }, [])
+
+  if (!isDeviceWidthDetermined) return null
+
+  if (isMobile) {
+    return (
+      <MobileMenu menuItems={menuItems} />
+    )
+  }
+
   return (
     <MenuWrapper>
-      {/* <MobileNavbarToggler /> */}
       {menuItems.map((item) => <MenuItem key={item.name} item={item} />)}
     </MenuWrapper>
   )

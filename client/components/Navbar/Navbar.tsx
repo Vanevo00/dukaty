@@ -13,6 +13,11 @@ const NavbarWrapper = styled.nav`
     padding-left: 50px;
     padding-right: 50px;
   }
+
+  @media (max-width: ${props => props.theme.mobileScreen}) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `
 
 const menuItems = [

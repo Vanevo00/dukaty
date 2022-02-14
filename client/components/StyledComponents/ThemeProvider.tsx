@@ -5,7 +5,8 @@ const theme = {
   primaryColor: '#37517e',
   secondaryColor: '#fff',
   tertiaryColor: 'gold',
-  largeScreen: '1080px'
+  largeScreen: '1080px',
+  mobileScreen: '800px'
 }
 
 const SCThemeProvider: FunctionComponent = ({ children }) => (
