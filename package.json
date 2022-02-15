@@ -1,0 +1,23 @@
+{
+  "name": "dukaty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:watch": "concurrently \"npm run start:watch --prefix server\" \"npm run start:watch --prefix client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vanevo00/dukaty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vanevo00/dukaty/issues"
+  },
+  "homepage": "https://github.com/Vanevo00/dukaty#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
