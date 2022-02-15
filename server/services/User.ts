@@ -78,13 +78,11 @@ export class UserService {
 
   async validateAndPrepareUserData (args: IRegisterUserArgs) {
     const {
-      name,
       email,
       password
     } = args
 
     await Promise.all([
-      validateDuplicate({ name }),
       validateDuplicate({ email }),
       validateEmail(email),
       validatePassword(password)
@@ -97,6 +95,7 @@ export class UserService {
 
     return {
       ...args,
+      name: lowercaseEmail,
       email: lowercaseEmail,
       password: hashedPassword
     }

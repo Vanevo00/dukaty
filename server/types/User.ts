@@ -13,7 +13,6 @@ export interface IUser {
 export interface IUserDocument extends Document, IUser {}
 
 export interface IRegisterUserArgs {
-    name: IUser['name']
     email: IUser['email']
     password: IUser['password']
 }

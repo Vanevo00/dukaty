@@ -17,7 +17,6 @@ export default gql`
 
     extend type Mutation {
         registerUser(
-            name: String!
             email: String!
             password: String!
         ): User
