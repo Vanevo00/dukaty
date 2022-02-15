@@ -1,14 +1,9 @@
 import React, { FC, useEffect } from 'react'
 import Head from 'next/head'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { AppProps } from 'next/app'
 import ThemeProvider from '../components/StyledComponents/ThemeProvider'
 
 const OrderTracker: FC<AppProps> = ({ Component, pageProps }) => {
-  useEffect(() => {
-    import('bootstrap/dist/js/bootstrap')
-  }, [])
-
   return (
     <>
       <Head>
