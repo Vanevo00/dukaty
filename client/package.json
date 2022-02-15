@@ -6,7 +6,7 @@
   "scripts": {
     "start:watch": "next dev -p 4000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 4000",
     "eslint": "eslint --ext '.js,.jsx,.ts,.tsx' .",
     "eslint:fix": "eslint --fix . --ext '.js,.jsx,.ts,.tsx' ."
   },
