@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 const Item = styled.a<{ isActive: boolean }>`
   color: ${props => props.isActive ? props.theme.tertiaryColor : props.theme.secondaryColor};
   font-family: "Poppins", sans-serif;
+  font-size: 16px;
   font-weight: 500;
   text-decoration: none;
   margin-left: 30px;

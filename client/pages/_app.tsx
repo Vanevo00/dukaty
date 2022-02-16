@@ -1,7 +1,8 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC } from 'react'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 import ThemeProvider from '../components/StyledComponents/ThemeProvider'
+import '@fortawesome/fontawesome-free/css/all.css'
 
 const OrderTracker: FC<AppProps> = ({ Component, pageProps }) => {
   return (

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import MenuItem from './MenuItem'
 import MobileMenu from './MobileMenu'
+import UserButton from './UserButton'
 
 const MenuWrapper = styled.div`
   display: flex;
@@ -38,6 +39,7 @@ const Menu = ({ menuItems }: Props) => {
   return (
     <MenuWrapper>
       {menuItems.map((item) => <MenuItem key={item.name} item={item} />)}
+      <UserButton />
     </MenuWrapper>
   )
 }
