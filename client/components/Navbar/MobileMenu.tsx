@@ -56,14 +56,21 @@ interface Props {
 
 const MobileMenu = ({ menuItems }: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isAuthOpen, setIsAuthOpen] = useState(false)
 
   const onClick = () => {
     setIsMenuOpen(!isMenuOpen)
+    setIsAuthOpen(false)
+  }
+
+  const toggleAuth = () => {
+    setIsAuthOpen(!isAuthOpen)
+    setIsMenuOpen(false)
   }
 
   return (
     <MobileNavbarWrapper>
-      <UserButton mobileVersion />
+      <UserButton mobileVersion isAuthOpen={isAuthOpen} closeAuth={() => setIsAuthOpen(false)} toggleAuth={toggleAuth} />
       <HamburgerWrapper onClick={onClick}>
         <Line1 isMenuOpen={isMenuOpen} />
         <Line2 isMenuOpen={isMenuOpen} />

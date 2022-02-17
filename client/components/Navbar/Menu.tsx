@@ -20,6 +20,7 @@ interface Props {
 const Menu = ({ menuItems }: Props) => {
   const [isMobile, setIsMobile] = useState(false)
   const [isDeviceWidthDetermined, setIsDeviceWidthDetermined] = useState(false)
+  const [isAuthOpen, setIsAuthOpen] = useState(false)
 
   useEffect(() => {
     if (window.innerWidth <= 800) {
@@ -39,7 +40,7 @@ const Menu = ({ menuItems }: Props) => {
   return (
     <MenuWrapper>
       {menuItems.map((item) => <MenuItem key={item.name} item={item} />)}
-      <UserButton />
+      <UserButton isAuthOpen={isAuthOpen} closeAuth={() => setIsAuthOpen(false)} toggleAuth={() => setIsAuthOpen(!isAuthOpen)} />
     </MenuWrapper>
   )
 }
