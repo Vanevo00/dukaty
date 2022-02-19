@@ -16,7 +16,7 @@ export const Popup = styled.div`
   background-color: ${props => props.theme.secondaryColor};
   border-radius: 10px;
   display: flex;
-  padding: 20px;
+  flex-direction: column;
   margin-top: 10vh;
   width: 468px;
 

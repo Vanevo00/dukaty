@@ -1,7 +1,7 @@
-import { MouseEventHandler, useState } from 'react'
+import { MouseEventHandler } from 'react'
 import styled from 'styled-components'
 import { Button } from '../Buttons'
-import { CloseButton, Popup, PopupWrapper } from '../Popup'
+import AuthPopup from './AuthPopup'
 
 const LoginButton = styled(Button)<{ isActive: boolean }>`
   margin-left: 30px;
@@ -28,11 +28,7 @@ const UserButton = ({ mobileVersion, isAuthOpen, toggleAuth, closeAuth }: Props)
   return (
     <>
       <LoginButton isActive={isAuthOpen} onClick={toggleAuth}><i className='fa-regular fa-user' />{!mobileVersion && ' PŘIHLÁŠENÍ'}</LoginButton>
-      <PopupWrapper isOpen={isAuthOpen}>
-        <Popup>
-          <CloseButton onClick={closeAuth} />
-        </Popup>
-      </PopupWrapper>
+      <AuthPopup isAuthOpen={isAuthOpen} closeAuth={closeAuth} />
     </>
   )
 }
