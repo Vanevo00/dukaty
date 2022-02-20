@@ -6,6 +6,7 @@ const theme = {
   lightPrimaryColor: '#4a6eab',
   secondaryColor: '#fff',
   tertiaryColor: 'gold',
+  errorColor: '#B00020',
   primaryFont: '"Poppins", sans-serif',
   largeScreen: '1080px',
   mobileScreen: '800px'

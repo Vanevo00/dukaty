@@ -21,7 +21,7 @@ export default gql`
             password: String!
         ): User
 
-        loginByPassword(
+        loginByEmail(
             email: String!
             password: String!
         ): User

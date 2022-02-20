@@ -6,8 +6,8 @@ const userService = new UserService()
 
 export default {
   Mutation: {
-    loginByPassword: async (_: undefined, args: ILoginUserArgs, { res }: IContext): Promise<IUserDocument> => {
-      return await userService.loginByPassword(args, res)
+    loginByEmail: async (_: undefined, args: ILoginUserArgs, { res }: IContext): Promise<IUserDocument> => {
+      return await userService.loginByEmail(args, res)
     }
   }
 }

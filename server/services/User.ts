@@ -32,7 +32,7 @@ export class UserService {
     }
   }
 
-  async loginByPassword (args: ILoginUserArgs, res: IContext['res']): Promise<IUserDocument> {
+  async loginByEmail (args: ILoginUserArgs, res: IContext['res']): Promise<IUserDocument> {
     try {
       const {
         email,
@@ -41,8 +41,8 @@ export class UserService {
 
       const user = await User.findOne({ email: email.toLowerCase() })
 
-      if (!user) throw new Error('user not found')
-      if (!(await bcrypt.compare(password, user.password))) throw new Error('invalid password')
+      if (!user) throw new Error('uživatel s tímto emailem neexistuje')
+      if (!(await bcrypt.compare(password, user.password))) throw new Error('nesprávné heslo')
 
       const userToken = jwt.sign(user.toJSON(), config.get('jwt.secret'), { expiresIn: '7 days' })
       res.cookie('userToken', userToken, {
