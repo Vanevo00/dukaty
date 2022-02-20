@@ -1,6 +1,8 @@
 import { CloseButton, Popup, PopupWrapper } from '../Popup'
 import { MouseEventHandler, useState } from 'react'
 import styled from 'styled-components'
+import LoginForm from './LoginForm'
+import RegisterForm from './RegisterForm'
 
 const SwitchContainer = styled.div`
   height: 98px;
@@ -9,6 +11,7 @@ const SwitchContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  margin-bottom: 30px;
 `
 
 const SwitchButton = styled.button<{ last?: boolean, active: boolean }>`
@@ -21,6 +24,13 @@ const SwitchButton = styled.button<{ last?: boolean, active: boolean }>`
   font-weight: 600;
   cursor: pointer;
   ${props => props.last && 'margin-left: 40px;'}
+`
+
+const AuthFormWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 interface Props {
@@ -39,7 +49,10 @@ const AuthPopup = ({ isAuthOpen, closeAuth }: Props) => {
           <SwitchButton active={activeSection === 'login'} onClick={() => setActiveSection('login')}>PŘIHLÁSIT</SwitchButton>
           <SwitchButton active={activeSection === 'register'} onClick={() => setActiveSection('register')} last>REGISTRACE</SwitchButton>
         </SwitchContainer>
-        <p>pes</p>
+        <AuthFormWrapper>
+          {activeSection === 'login' && <LoginForm />}
+          {activeSection === 'register' && <RegisterForm />}
+        </AuthFormWrapper>
       </Popup>
     </PopupWrapper>
   )

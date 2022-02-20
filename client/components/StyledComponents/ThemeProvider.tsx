@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 
 const theme = {
   primaryColor: '#37517e',
+  lightPrimaryColor: '#4a6eab',
   secondaryColor: '#fff',
   tertiaryColor: 'gold',
   primaryFont: '"Poppins", sans-serif',

@@ -10,4 +10,17 @@ export const Button = styled.button`
   padding: 4px 6px;
   border-radius: 8px;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${props => props.theme.lightPrimaryColor};
+  }
+`
+
+export const WideButton = styled(Button)`
+  width: 100%;
+`
+
+export const AuthButton = styled(WideButton)`
+  width: 268px;
+  height: 40px;
 `

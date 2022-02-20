@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react'
 import styled from 'styled-components'
-import { Button } from '../Buttons'
+import { Button } from '../StyledComponents/Buttons'
 import AuthPopup from './AuthPopup'
 
 const LoginButton = styled(Button)<{ isActive: boolean }>`
