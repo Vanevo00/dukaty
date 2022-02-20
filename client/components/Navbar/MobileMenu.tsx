@@ -45,6 +45,7 @@ const Line3 = styled(Line)<{isMenuOpen: boolean}>`
 
 const MenuPopup = styled(Popup)`
   flex-direction: column;
+  padding: 20px;
 `
 
 interface Props {
