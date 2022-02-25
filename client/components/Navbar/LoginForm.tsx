@@ -6,6 +6,8 @@ import { Form } from '../StyledComponents/Forms'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import { apolloClient } from '../../apollo/apolloClient'
 import { LOGIN_BY_EMAIL } from '../../apollo/mutations/loginByEmail'
+import { removeErrorFromErrorMessage } from '../../utils/textHandling'
+import Spinner from '../StyledComponents/Spinner'
 
 const DescriptiveText = styled(SmallBoldText)`
   margin-bottom: 10px;
@@ -17,6 +19,8 @@ const LoginForm = () => {
     password: ''
   })
   const [errorMessage, setErrorMessage] = useState('')
+  const [isSending, setIsSending] = useState(false)
+  const [isLoginSuccessful, setIsLoginSuccessful] = useState(false)
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValues({
@@ -27,6 +31,8 @@ const LoginForm = () => {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setErrorMessage('')
+    setIsSending(true)
 
     try {
       const {
@@ -34,16 +40,18 @@ const LoginForm = () => {
         password
       } = inputValues
 
-      const user = await apolloClient.mutate({
+      await apolloClient.mutate({
         mutation: LOGIN_BY_EMAIL,
         variables: {
           email,
           password
         }
       })
+      setIsLoginSuccessful(true)
     } catch (err: any) {
-      setErrorMessage(err.message)
+      setErrorMessage(removeErrorFromErrorMessage(err.message))
     }
+    setIsSending(false)
   }
 
   return (
@@ -53,7 +61,7 @@ const LoginForm = () => {
         <TextInput placeholder='Email' name='email' type='email' onChange={onChange} value={inputValues.email} />
         <TextInput placeholder='Heslo' name='password' type='password' onChange={onChange} value={inputValues.password} />
         <ErrorMessage>{errorMessage}</ErrorMessage>
-        <AuthButton>Přihlásit</AuthButton>
+        <AuthButton>{isSending ? <Spinner /> : isLoginSuccessful ? <i className='fa-solid fa-check fa-lg' /> : 'Přihlásit'}</AuthButton>
       </Form>
     </>
   )
