@@ -12,6 +12,9 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import config from 'config'
 import { IContext } from '../types/Context'
+import { UserActivationService } from './UserActivation'
+
+const userActivationService = new UserActivationService()
 
 export class UserService {
   async findOne (args: IFindOneUserArgs): Promise<IUserDocument> {
@@ -25,6 +28,8 @@ export class UserService {
       const preparedUserData = await this.validateAndPrepareUserData(args)
 
       const createdUser = await User.create(preparedUserData)
+
+      await userActivationService.create(createdUser)
 
       return createdUser
     } catch (err: any) {
