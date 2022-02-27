@@ -5,7 +5,7 @@ import {
   IRegisterUserArgs,
   IUserDocument
 } from '../types/User'
-import validateDuplicate from '../utils/validateDuplicate'
+import validateDuplicateUser from '../utils/validateDuplicateUser'
 import validateEmail from '../utils/validateEmail'
 import validatePassword from '../utils/validatePassword'
 import bcrypt from 'bcryptjs'
@@ -29,7 +29,7 @@ export class UserService {
 
       const createdUser = await User.create(preparedUserData)
 
-      await userActivationService.create(createdUser)
+      userActivationService.create(createdUser)
 
       return createdUser
     } catch (err: any) {
@@ -87,11 +87,15 @@ export class UserService {
       password
     } = args
 
-    await Promise.all([
-      validateDuplicate({ email }),
-      validateEmail(email),
-      validatePassword(password)
-    ])
+    await validateDuplicateUser({ email })
+    validateEmail(email)
+    validatePassword(password)
+
+    // await Promise.all([
+    //   validateDuplicateUser({ email }),
+    //   validateEmail(email),
+    //   validatePassword(password)
+    // ])
 
     const lowercaseEmail = email.toLowerCase()
 

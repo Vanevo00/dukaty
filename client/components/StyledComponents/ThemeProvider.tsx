@@ -7,6 +7,7 @@ const theme = {
   secondaryColor: '#fff',
   tertiaryColor: 'gold',
   errorColor: '#B00020',
+  successColor: '#4F8A10',
   primaryFont: '"Poppins", sans-serif',
   largeScreen: '1080px',
   mobileScreen: '800px'

@@ -15,6 +15,10 @@ const LoginButton = styled(Button)<{ isActive: boolean }>`
     height: 32px;
     margin: 0;
   }
+
+  &:hover {
+    background-color: ${props => props.isActive ? props.theme.secondaryColor : props.theme.primaryColor};
+  }
 `
 
 interface Props {

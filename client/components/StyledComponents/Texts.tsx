@@ -15,3 +15,7 @@ export const ErrorMessage = styled.p`
   width: 100%;
   font-size: 10px;
 `
+
+export const SuccessMessage = styled(ErrorMessage)`
+  color: ${props => props.theme.successColor};
+`

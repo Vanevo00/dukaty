@@ -9,5 +9,5 @@ export const generateHtmlActivationEmail = (activationCode: string): string => `
     <br/>
     <p>S pozdravem,</p>
     <br/>
-    <p>tým <a href=${config.get('client.domain')}>správce objednávek</a></p>
+    <p>tým <a href=${config.get('client.domain')}>dukáty.cz</a></p>
 `

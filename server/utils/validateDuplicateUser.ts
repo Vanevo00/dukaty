@@ -7,5 +7,5 @@ interface Args {
 
 export default async (args: Args): Promise<void> => {
   const duplicateUser = await User.findOne(args)
-  if (duplicateUser) throw new Error(`Duplicate user key: ${Object.keys(args)}`)
+  if (duplicateUser) throw new Error('Uživatel s tímto emailem již existuje')
 }

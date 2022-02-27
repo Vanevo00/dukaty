@@ -60,7 +60,7 @@ const LoginForm = () => {
       <Form onSubmit={onSubmit}>
         <TextInput placeholder='Email' name='email' type='email' onChange={onChange} value={inputValues.email} />
         <TextInput placeholder='Heslo' name='password' type='password' onChange={onChange} value={inputValues.password} />
-        <ErrorMessage>{errorMessage}</ErrorMessage>
+        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         <AuthButton>{isSending ? <Spinner /> : isLoginSuccessful ? <i className='fa-solid fa-check fa-lg' /> : 'Přihlásit'}</AuthButton>
       </Form>
     </>
