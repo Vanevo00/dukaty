@@ -5,6 +5,8 @@ import { IUserActivation, IUserActivationArgs } from '../types/UserActivation'
 import { UserActivation } from '../models/UserActivation'
 import config from 'config'
 import { generateHtmlActivationEmail, generatePlainActivationEmail } from '../mailer/activationEmail'
+import jwt from 'jsonwebtoken'
+import { IContext } from '../types/Context'
 
 export class UserActivationService {
   async findOne (args: IUserActivationArgs): Promise<IUserActivation | null> {
@@ -17,12 +19,19 @@ export class UserActivationService {
     }
   }
 
-  async activate (args: IUserActivationArgs): Promise<IUserDocument> {
+  async activate (args: IUserActivationArgs, res: IContext['res']): Promise<IUserDocument> {
     const activation = await this.findOne(args)
     if (!activation) throw new Error('activation code not found')
     if (activation.user.activated === true) throw new Error('user already activated')
 
     activation.user.activated = true
+
+    const userToken = jwt.sign(activation.user.toJSON(), config.get('jwt.secret'), { expiresIn: '7 days' })
+    res.cookie('userToken', userToken, {
+      httpOnly: true,
+      sameSite: 'none',
+      secure: true
+    })
 
     return activation.user.save()
   }

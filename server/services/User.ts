@@ -91,12 +91,6 @@ export class UserService {
     validateEmail(email)
     validatePassword(password)
 
-    // await Promise.all([
-    //   validateDuplicateUser({ email }),
-    //   validateEmail(email),
-    //   validatePassword(password)
-    // ])
-
     const lowercaseEmail = email.toLowerCase()
 
     const salt = await bcrypt.genSalt(10)
